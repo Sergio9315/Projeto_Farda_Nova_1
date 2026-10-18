@@ -89,9 +89,10 @@ O login e o armazenamento local são apenas uma simulação acadêmica. Não dev
 
 Sistema de Gestão de Fardamentos e Requisições.
 
-## 🔗 Links do Projeto
 
-- **Repositório GitHub:** [Acessar código-fonte](COLE_AQUI_O_LINK_DO_REPOSITORIO)
-- **Sistema publicado (GitHub Pages):** [Acessar o sistema](COLE_AQUI_O_LINK_DO_SITE)
+## Links do Projeto
+
+- **Repositório GitHub:** https://github.com/Sergio9315/Projeto_Farda_Nova_1
+- **Sistema publicado (GitHub Pages - HTTPS):** https://sergio9315.github.io/Projeto_Farda_Nova_1/
 
 ---

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Farda Nova | Portal do Colaborador</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <header class="topbar">
+        <a class="brand" href="../index.html"><span>FARDA</span> NOVA</a>
+        <a class="back-link" href="../index.html">← Início</a>
+    </header>
+
+    <main class="form-page">
+        <section class="form-container">
+            <div class="section-heading">
+                <span class="tag">ÁREA DO FUNCIONÁRIO</span>
+                <h1>Portal do Colaborador</h1>
+                <p id="portalSummary">Selecione um serviço para consultar as informações salvas.</p>
+            </div>
+
+            <div class="option-grid">
+                <button class="option-card service-card" data-service="Acompanhar Requisição" type="button">
+                    <span>01</span><h2>Acompanhar Requisição</h2>
+                    <p>Consulte o kit escolhido e o andamento da requisição.</p>
+                </button>
+
+                <a class="option-card service-card service-link-card" href="troca.html" aria-label="Solicitar Troca de Peça">
+                    <span>02</span><h2>Solicitar Troca de Peça</h2>
+                    <p>Registre uma solicitação de troca por dano ou tamanho incorreto.</p>
+                    <strong class="card-action">Abrir lista de peças →</strong>
+                </a>
+
+                <a class="option-card service-card service-link-card" href="status-troca.html" aria-label="Status da Troca">
+                    <span>03</span><h2>Status da Troca</h2>
+                    <p>Consulte o protocolo e o andamento da solicitação de troca de peça.</p>
+                    <strong class="card-action">Consultar status →</strong>
+                </a>
+
+                <button class="option-card service-card" data-service="Consultar Protocolo" type="button">
+                    <span>04</span><h2>Consultar Protocolo</h2>
+                    <p>Informe o protocolo da requisição para consultar o kit e o status.</p>
+                </button>
+
+                <button class="option-card service-card" data-service="Manual de Uso" type="button">
+                    <span>05</span><h2>Manual de Uso</h2>
+                    <p>Consulte orientações de limpeza, conservação e utilização dos EPIs.</p>
+                </button>
+
+                <button class="option-card service-card" data-service="Termo de Responsabilidade" type="button">
+                    <span>06</span><h2>Termo de Responsabilidade</h2>
+                    <p>Consulte o termo e registre a leitura no sistema acadêmico.</p>
+                </button>
+            </div>
+
+            <div class="result-box" id="serviceResult" aria-live="polite">
+                <h3>Selecione um serviço corporativo</h3>
+                <p>A mensagem referente ao serviço aparecerá aqui.</p>
+            </div>
+
+            <div class="form-footer">
+                <a class="btn btn-secondary" href="cadastro.html">Voltar ao Cadastro</a>
+                <button class="btn btn-primary" id="logoutPortal" type="button">Sair do Sistema</button>
+            </div>
+        </section>
+    </main>
+
+    <footer><p>Farda Nova &copy; 2026 — Projeto Acadêmico Front-End</p></footer>
+    <script src="../js/script.js"></script>
+</body>
+</html>

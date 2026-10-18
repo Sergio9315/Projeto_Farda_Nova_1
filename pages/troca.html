@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Farda Nova | Solicitar Troca de Peça</title>
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+<header class="topbar"><a class="brand" href="../dashboard.html"><span>FARDA</span> NOVA</a><a class="back-link" href="servicos.html">← Portal do Colaborador</a></header>
+<main class="form-page"><section class="form-container">
+<div class="section-heading"><span class="tag">PORTAL DO COLABORADOR</span><h1>Solicitar Troca de Peça</h1><p>Registre a peça, quantidade, motivo e acompanhe pelo protocolo.</p></div>
+<div id="lastSwapBox" class="result-box" style="display:none;"></div>
+<div class="result-box">
+<h3>Menu de peças para troca</h3><p>Selecione uma peça no menu. Ela será incluída na lista abaixo.</p>
+<label class="piece-menu-label" for="exchangePieceMenu">Peça a ser trocada</label>
+<select id="exchangePieceMenu" class="exchange-piece-menu">
+<option value="">Selecione uma peça...</option>
+<option>Camisa social</option><option>Calça tática</option><option>Coturno</option><option>Jaqueta de frio</option>
+<option>Fardamento tático</option><option>Colete balístico</option><option>Cinto de guarnição</option>
+<option>Camisa polo corporativa</option><option>Calça social</option><option>Crachá</option>
+<option>Uniforme de serviço</option><option>Bota de segurança</option><option>Luvas</option><option>Óculos de proteção</option><option>Protetor auricular</option><option>Colete refletivo</option>
+</select>
+<div id="exchangePageList" class="exchange-page-list"></div>
+</div>
+<form id="exchangePageForm" class="exchange-page-form">
+<label>Motivo da troca<select id="exchangePageReason" required><option value="">Selecione o motivo</option><option>Desgaste natural</option><option>Dano na peça</option><option>Tamanho incorreto</option><option>Perda ou extravio</option><option>Outro motivo</option></select></label>
+<label>Observação<textarea id="exchangePageDetails" rows="4" placeholder="Descreva o problema, se necessário."></textarea></label>
+<button class="btn btn-primary" type="submit">Registrar Solicitação de Troca</button>
+<div id="exchangePageMessage" class="form-message" aria-live="polite"></div>
+</form>
+<div class="form-footer"><a class="btn btn-secondary" href="status-troca.html">Ver Status da Troca</a><a class="btn btn-secondary" href="servicos.html">Voltar ao Portal</a></div>
+</section></main><footer><p>Farda Nova &copy; 2026 — Projeto Acadêmico Front-End</p></footer>
+<script>
+(function(){
+function esc(v){return String(v??'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#039;');}
+if(localStorage.getItem('fardaNovaLogado')!=='true'){location.href='../index.html';return;}
+const pieces=['Camisa social','Calça tática','Coturno','Jaqueta de frio','Fardamento tático','Colete balístico','Cinto de guarnição','Camisa polo corporativa','Calça social','Crachá','Uniforme de serviço','Bota de segurança','Luvas','Óculos de proteção','Protetor auricular','Colete refletivo'];
+const menu=document.getElementById('exchangePieceMenu'), list=document.getElementById('exchangePageList'), form=document.getElementById('exchangePageForm'), msg=document.getElementById('exchangePageMessage'), box=document.getElementById('lastSwapBox');
+function getSwap(){try{return JSON.parse(localStorage.getItem('fardaNovaTroca')||'null')}catch(e){return null}}
+function renderList(){const swap=getSwap(); const saved=swap?.peças||[]; list.innerHTML=pieces.map(function(piece){const old=saved.find(x=>x.peça===piece);return '<label class="exchange-page-item"><input type="checkbox" class="exchange-page-piece" value="'+esc(piece)+'" '+(old?'checked':'')+'><span>'+esc(piece)+'</span><input type="number" class="exchange-page-quantity" data-piece="'+esc(piece)+'" min="1" value="'+(old?.quantidade||1)+'"></label>'}).join('');}
+function showLast(){const s=getSwap(); if(!s)return; box.style.display='block'; box.innerHTML='<h3>✓ Última solicitação registrada</h3><p><strong>Protocolo:</strong> '+esc(s.protocolo)+'</p><p><strong>Data:</strong> '+esc(s.data)+'</p><p><strong>Status:</strong> '+esc(s.status)+'</p><p><a class="btn btn-secondary" href="status-troca.html">Ver Status da Troca</a></p>';}
+menu.addEventListener('change',function(){if(!this.value)return; const cb=Array.from(document.querySelectorAll('.exchange-page-piece')).find(x=>x.value===this.value); if(cb){cb.checked=true; cb.closest('label')?.scrollIntoView({behavior:'smooth',block:'nearest'});} this.value='';});
+form.addEventListener('submit',function(e){e.preventDefault(); const selected=Array.from(document.querySelectorAll('.exchange-page-piece:checked')); const reason=document.getElementById('exchangePageReason').value; if(!selected.length){msg.textContent='Selecione pelo menos uma peça.';msg.style.color='#a82424';return;} if(!reason){msg.textContent='Selecione o motivo da troca.';msg.style.color='#a82424';return;}
+const now=new Date(); const protocolo='TR-'+String(Date.now()).slice(-6); const data=now.toLocaleString('pt-BR'); const pecas=selected.map(function(cb){const q=document.querySelector('.exchange-page-quantity[data-piece="'+CSS.escape(cb.value)+'"]');return {peça:cb.value,quantidade:Math.max(1,Number(q?.value||1))};}); const troca={protocolo,peças:pecas,motivo:reason,observacao:document.getElementById('exchangePageDetails').value.trim(),status:'Aguardando análise do RH',data};
+localStorage.setItem('fardaNovaTroca',JSON.stringify(troca)); localStorage.setItem('fardaNovaUltimoProtocoloTroca',protocolo); localStorage.setItem('fardaNovaUltimaDataTroca',data); localStorage.setItem('fardaNovaStatusTroca',troca.status); localStorage.setItem('fardaNovaMotivoTroca',reason); localStorage.setItem('fardaNovaPecasTroca',JSON.stringify(pecas));
+msg.innerHTML='<div class="success-box" style="margin-top:16px;padding:20px;border-left:5px solid #315d24;background:#eef4e8;border-radius:8px"><h3 style="color:#315d24;margin-top:0">✓ Solicitação registrada com sucesso!</h3><p><strong>Protocolo da troca:</strong> '+esc(protocolo)+'</p><p><strong>Data:</strong> '+esc(data)+'</p><p><strong>Status:</strong> '+esc(troca.status)+'</p><p>O protocolo poderá ser consultado em <strong>Status da Troca</strong> e em <strong>Consultar Protocolo</strong>.</p><a class="btn btn-primary" href="status-troca.html">Consultar Status da Troca</a></div>'; msg.style.color='inherit'; showLast(); window.scrollTo({top:document.body.scrollHeight,behavior:'smooth'});});
+renderList(); showLast();
+})();
+</script></body></html>

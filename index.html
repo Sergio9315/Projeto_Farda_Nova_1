@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Farda Nova | Login</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="login-body">
+
+    <main class="login-page">
+        <section class="login-card" aria-labelledby="loginTitle">
+            <div class="login-logo">FARDA <span>NOVA</span></div>
+            <span class="tag">SISTEMA EMPRESARIAL</span>
+
+            <h1 id="loginTitle">Acesso ao Sistema</h1>
+            <p class="login-description">
+                Entre com usuário e senha para acessar a gestão de fardamentos e o Portal do Colaborador.
+            </p>
+
+            <form id="loginForm" class="login-form" novalidate>
+                <label for="loginUsuario">
+                    Usuário
+                    <input type="text" id="loginUsuario" name="usuario"
+                           autocomplete="username" placeholder="Digite seu usuário" value="admin">
+                </label>
+
+                <label for="loginSenha">
+                    Senha
+                    <input type="password" id="loginSenha" name="senha"
+                           autocomplete="current-password" placeholder="Digite sua senha" value="1234">
+                </label>
+
+                <button class="btn btn-primary" type="submit">Entrar no Sistema</button>
+                <p id="loginMessage" class="form-message" aria-live="polite"></p>
+            </form>
+
+            <div class="demo-box">
+                <strong>Acesso acadêmico de demonstração</strong>
+                <span>Usuário: <b>admin</b> &nbsp;|&nbsp; Senha: <b>1234</b></span>
+            </div>
+        </section>
+    </main>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

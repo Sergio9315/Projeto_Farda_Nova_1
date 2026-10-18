@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Farda Nova | Cadastro</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <header class="topbar">
+        <a class="brand" href="../index.html"><span>FARDA</span> NOVA</a>
+        <a class="back-link" href="../index.html">← Início</a>
+    </header>
+
+    <main class="form-page">
+        <section class="form-container">
+            <div class="section-heading">
+                <span class="tag">ETAPA 1</span>
+                <h1>Cadastro de Colaborador</h1>
+                <p>Preencha os dados para liberar a requisição do fardamento.</p>
+            </div>
+
+            <form id="cadastroForm">
+                <div class="form-grid">
+                    <label class="full">Nome completo
+                        <input type="text" id="nome" name="nome" required>
+                    </label>
+
+                    <label>Data de nascimento
+                        <input type="date" id="nascimento" name="nascimento" required>
+                    </label>
+
+                    <label>Sexo
+                        <select id="sexo" name="sexo" required>
+                            <option value="">Selecione</option>
+                            <option>Feminino</option>
+                            <option>Masculino</option>
+                            <option>Unissex</option>
+                        </select>
+                    </label>
+
+                    <label>E-mail Corporativo
+                        <input type="email" id="email" name="email" required>
+                    </label>
+
+                    <label>Telefone
+                        <input type="tel" id="telefone" name="telefone" placeholder="(00) 00000-0000" required>
+                    </label>
+
+                    <label>CPF
+                        <input type="text" id="cpf" name="cpf" placeholder="000.000.000-00" required>
+                    </label>
+
+                    <label>RG
+                        <input type="text" id="rg" name="rg" required>
+                    </label>
+
+                    <label class="full">Endereço
+                        <input type="text" id="endereco" name="endereco" required>
+                    </label>
+
+                    <label>Cidade
+                        <input type="text" id="cidade" name="cidade" required>
+                    </label>
+
+                    <label>Estado
+                        <select id="estado" name="estado" required>
+                            <option value="">Selecione</option>
+                            <option>AC</option><option>AL</option><option>AP</option><option>AM</option>
+                            <option>BA</option><option>CE</option><option>DF</option><option>ES</option>
+                            <option>GO</option><option>MA</option><option>MT</option><option>MS</option>
+                            <option>MG</option><option>PA</option><option>PB</option><option>PR</option>
+                            <option>PE</option><option>PI</option><option>RJ</option><option>RN</option>
+                            <option>RS</option><option>RO</option><option>RR</option><option>SC</option>
+                            <option>SP</option><option>SE</option><option>TO</option>
+                        </select>
+                    </label>
+
+                    <label>CEP
+                        <input type="text" id="cep" name="cep" placeholder="00000-000" required>
+                    </label>
+                </div>
+
+                <div class="form-footer">
+                    <a class="btn btn-secondary" href="../index.html">Cancelar</a>
+                    <button class="btn btn-primary" type="submit">Continuar para Kits</button>
+                </div>
+                <p class="form-message" id="formMessage" aria-live="polite"></p>
+            </form>
+        </section>
+    </main>
+
+    <footer><p>Farda Nova &copy; 2026 — Projeto Acadêmico Front-End</p></footer>
+    <script src="../js/script.js"></script>
+</body>
+</html>

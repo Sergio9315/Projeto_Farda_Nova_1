@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Farda Nova | Requisição de Kit</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <header class="topbar">
+        <a class="brand" href="../index.html"><span>FARDA</span> NOVA</a>
+        <a class="back-link" href="../index.html">← Início</a>
+    </header>
+
+    <main class="form-page">
+        <section class="form-container">
+            <div class="section-heading">
+                <span class="tag">ETAPA 2</span>
+                <h1>Requisição de Fardamento</h1>
+                <p id="employeeSummary">Selecione o kit adequado à função do colaborador.</p>
+            </div>
+
+            <div class="option-grid">
+                <button class="option-card" data-option="Kit Vigilância Patrimonial" type="button">
+                    <span>01</span><h2>Vigilância Patrimonial</h2>
+                    <p>Camisa social, calça tática, coturno e jaqueta de frio.</p>
+                </button>
+
+                <button class="option-card" data-option="Kit Escolta Armada" type="button">
+                    <span>02</span><h2>Escolta Armada</h2>
+                    <p>Fardamento tático completo, colete balístico e cinto de guarnição.</p>
+                </button>
+
+                <button class="option-card" data-option="Kit Administrativo" type="button">
+                    <span>03</span><h2>Setor Administrativo</h2>
+                    <p>Camisa polo corporativa, calça social e crachá.</p>
+                </button>
+
+                <button class="option-card" data-option="Kit Serviços Gerais" type="button">
+                    <span>04</span><h2>Serviços Gerais</h2>
+                    <p>Uniforme de serviço, bota de segurança e equipamentos adequados à função.</p>
+                </button>
+            </div>
+
+            <section class="acquisition-list" aria-labelledby="acquisitionTitle">
+                <div class="section-heading compact-heading">
+                    <span class="tag">LISTA DE AQUISIÇÃO</span>
+                    <h2 id="acquisitionTitle">Kits a serem adquiridos</h2>
+                    <p>Selecione os kits que deverão fazer parte desta requisição e informe a quantidade.</p>
+                </div>
+
+                <div class="acquisition-items">
+                    <label class="acquisition-item">
+                        <input type="checkbox" class="kit-check" value="Kit Vigilância Patrimonial">
+                        <span class="acquisition-name">Kit Vigilância Patrimonial</span>
+                        <input type="number" class="kit-quantity" data-kit="Kit Vigilância Patrimonial"
+                               min="1" value="1" aria-label="Quantidade de Kit Vigilância Patrimonial">
+                    </label>
+
+                    <label class="acquisition-item">
+                        <input type="checkbox" class="kit-check" value="Kit Escolta Armada">
+                        <span class="acquisition-name">Kit Escolta Armada</span>
+                        <input type="number" class="kit-quantity" data-kit="Kit Escolta Armada"
+                               min="1" value="1" aria-label="Quantidade de Kit Escolta Armada">
+                    </label>
+
+                    <label class="acquisition-item">
+                        <input type="checkbox" class="kit-check" value="Kit Administrativo">
+                        <span class="acquisition-name">Kit Administrativo</span>
+                        <input type="number" class="kit-quantity" data-kit="Kit Administrativo"
+                               min="1" value="1" aria-label="Quantidade de Kit Administrativo">
+                    </label>
+
+                    <label class="acquisition-item">
+                        <input type="checkbox" class="kit-check" value="Kit Serviços Gerais">
+                        <span class="acquisition-name">Kit Serviços Gerais</span>
+                        <input type="number" class="kit-quantity" data-kit="Kit Serviços Gerais"
+                               min="1" value="1" aria-label="Quantidade de Kit Serviços Gerais">
+                    </label>
+                </div>
+
+                <div class="acquisition-summary" id="acquisitionSummary" aria-live="polite">
+                    Nenhum kit foi adicionado à lista de aquisição.
+                </div>
+            </section>
+
+            <section class="materials-acquisition" aria-labelledby="materialsTitle">
+                <div class="section-heading compact-heading">
+                    <span class="tag">MATERIAIS POR KIT</span>
+                    <h2 id="materialsTitle">Materiais a serem adquiridos</h2>
+                    <p>Selecione um kit para visualizar sua lista de materiais e informe a quantidade de cada item.</p>
+                </div>
+                <div id="kitMaterialsContainer" class="kit-materials-container" aria-live="polite"></div>
+            </section>
+
+            <div class="result-box" id="optionResult" aria-live="polite">
+                <h3>Selecione um Kit de Fardamento</h3>
+                <p>A opção escolhida aparecerá aqui.</p>
+            </div>
+
+            <div class="form-footer">
+                <a class="btn btn-secondary" href="cadastro.html">Voltar</a>
+                <button class="btn btn-primary" id="finishRequest" type="button">Finalizar Requisição</button>
+            </div>
+
+            <p class="form-message" id="requestMessage" aria-live="polite"></p>
+        </section>
+    </main>
+
+    <footer><p>Farda Nova &copy; 2026 — Projeto Acadêmico Front-End</p></footer>
+    <script src="../js/script.js"></script>
+</body>
+</html>

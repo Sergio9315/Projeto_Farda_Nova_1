@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Farda Nova | Gestão de Fardamento</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header class="topbar">
+        <a class="brand" href="index.html" aria-label="Farda Nova - início">
+            <span>FARDA</span> NOVA
+        </a>
+        <nav aria-label="Navegação principal">
+            <a href="#sobre">Sobre</a>
+            <a href="#responsabilidades">Normas</a>
+            <button class="nav-button" id="logoutButton" type="button">Sair</button>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <span class="tag">SISTEMA EMPRESARIAL</span>
+                <h1>Gestão de Fardamento e EPIs</h1>
+                <p>
+                    Plataforma acadêmica para cadastro de colaboradores, requisição de kits
+                    e acompanhamento de serviços relacionados ao fardamento.
+                </p>
+
+                <div class="hero-actions">
+                    <a class="btn btn-primary" href="pages/cadastro.html">Novo Colaborador</a>
+                    <a class="btn btn-secondary" href="pages/servicos.html">Portal do Colaborador</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="sobre">
+            <div class="section-heading">
+                <span class="tag">VANTAGENS</span>
+                <h2>Gestão digital do fardamento</h2>
+                <p>As informações são manipuladas dinamicamente com JavaScript e localStorage.</p>
+            </div>
+
+            <div class="cards three">
+                <article class="card feature-card">
+                    <div class="icon">01</div>
+                    <h3>Controle de Kits</h3>
+                    <p>Consulte os kits registrados, quantidades e status das requisições.</p>
+                    <button class="feature-button" type="button" data-feature="estoque">
+                        Acessar Controle de Kits
+                    </button>
+                </article>
+
+                <article class="card feature-card">
+                    <div class="icon">02</div>
+                    <h3>Segurança no Trabalho</h3>
+                    <p>Consulte orientações sobre fardamentos, EPIs e procedimentos de segurança.</p>
+                    <button class="feature-button" type="button" data-feature="seguranca">
+                        Acessar Segurança
+                    </button>
+                </article>
+
+                <article class="card feature-card">
+                    <div class="icon">03</div>
+                    <h3>Agilidade de RH</h3>
+                    <p>Consulte o fluxo de cadastro, requisição e atendimento do colaborador.</p>
+                    <button class="feature-button" type="button" data-feature="rh">
+                        Acessar RH
+                    </button>
+                </article>
+            </div>
+
+            <div class="feature-result" id="featureResult" aria-live="polite">
+                <h3>Selecione uma função</h3>
+                <p>Clique em um dos três botões para consultar a função correspondente.</p>
+            </div>
+        </section>
+
+        <section class="section dark-section" id="responsabilidades">
+            <div class="section-heading">
+                <span class="tag">NORMAS INTERNAS</span>
+                <h2>Responsabilidades do Colaborador</h2>
+            </div>
+
+            <div class="responsibility-grid">
+                <article>
+                    <h3>Uso Obrigatório</h3>
+                    <p>Utilizar o fardamento conforme as normas internas da empresa.</p>
+                </article>
+                <article>
+                    <h3>Conservação</h3>
+                    <p>Zelar pela limpeza e integridade das peças recebidas.</p>
+                </article>
+                <article>
+                    <h3>Devolução</h3>
+                    <p>Devolver os itens conforme as regras estabelecidas pela empresa.</p>
+                </article>
+                <article>
+                    <h3>Solicitação de Troca</h3>
+                    <p>Solicitar troca quando houver dano, desgaste ou tamanho inadequado.</p>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>Farda Nova &copy; 2026 — Projeto Acadêmico Front-End</p>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

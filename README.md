@@ -2,6 +2,11 @@
 
 Projeto acadêmico de desenvolvimento Front-End para simulação de cadastro de colaboradores, requisição de kits de fardamento e Portal do Colaborador.
 
+# Grupo:
+- Nickolas da Silva Coquejo Santiago
+- Pedro Henrique Mello Rodrigues
+- Sergio Apolinario
+
 ## Tecnologias
 
 - HTML5 semântico
